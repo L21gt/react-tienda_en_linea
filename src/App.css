@@ -1,0 +1,214 @@
+/* Estilos generales para el contenedor de la aplicación */
+.app-container {
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Estilos para el título principal */
+.title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Estilos para la cuadrícula de productos */
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Estilos para cada tarjeta de producto */
+.producto-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Asegura que todas las tarjetas tengan la misma altura si el contenido varía */
+}
+
+/* Estilos para la imagen del producto */
+.producto-card img {
+  width: 100%;
+  height: 180px; /* Altura fija para las imágenes */
+  object-fit: cover; /* Recorta la imagen para cubrir el área sin distorsionar */
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para el nombre del producto */
+.producto-card h3 {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+/* Estilos para el precio del producto */
+.producto-card p {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Estilos para mensajes de carga o error */
+.loading-message, .error-message {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.1em;
+}
+
+.error-message {
+  color: red;
+}
+
+/* Estilos para el control de cantidad en la tarjeta de producto */
+.cantidad-control {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px; /* Espacio entre el label y el input */
+}
+
+.cantidad-control label {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.cantidad-control input[type="number"] {
+  width: 60px; /* Ancho más pequeño para el input numérico */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  -moz-appearance: textfield; /* Para Firefox */
+}
+
+/* Ocultar flechas en input type="number" para Webkit (Chrome, Safari, Edge) */
+.cantidad-control input::-webkit-outer-spin-button,
+.cantidad-control input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+/* Estilos para el botón "Agregar al Carrito" */
+.agregar-carrito-btn {
+  background-color: #28a745; /* Verde */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.agregar-carrito-btn:hover {
+  background-color: #218838; /* Verde más oscuro al pasar el mouse */
+}
+
+/* Estilos para el contenedor del carrito */
+.carrito-container {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 40px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.carrito-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.carrito-vacio-mensaje {
+  text-align: center;
+  color: #777;
+  font-style: italic;
+  padding: 20px 0;
+}
+
+/* Estilos para la tabla del carrito */
+.carrito-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.carrito-tabla th, .carrito-tabla td {
+  border: 1px solid #eee;
+  padding: 10px;
+  text-align: left;
+}
+
+.carrito-tabla th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  color: #555;
+}
+
+.carrito-tabla td {
+  vertical-align: middle;
+}
+
+/* Estilos para el botón eliminar del carrito */
+.eliminar-btn {
+  background-color: #dc3545; /* Rojo */
+  color: white;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease;
+}
+
+.eliminar-btn:hover {
+  background-color: #c82333; /* Rojo más oscuro */
+}
+
+/* Estilos para el total del carrito */
+.total-carrito {
+  text-align: right;
+  font-size: 1.5em;
+  color: #007bff;
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px dashed #eee;
+}
+
+/* Estilos para el botón "Ingresar Orden" */
+.ingresar-orden-btn {
+  display: block; /* Ocupa todo el ancho disponible */
+  width: 100%; /* Asegura que el ancho sea completo */
+  margin-top: 20px;
+  padding: 15px 20px;
+  background-color: #007bff; /* Azul */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.ingresar-orden-btn:hover {
+  background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+}
