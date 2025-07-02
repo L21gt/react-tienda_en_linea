@@ -47,8 +47,86 @@ El proyecto consiste en desarrollar una tienda en línea básica utilizando los 
 
 El diseño de la interfaz de la aplicación queda a tu discreción. Solamente se debe tomar en cuenta que existan todas las vistas requeridas. No es requerido un diseño complejo, solamente que se puedan visualizar correctamente los requerimientos del proyecto.
 
+---------------------------------------------------------------------------------------------
 
--------------------------------------------
+# Mini Tienda en Línea - Proyecto Final de React Fundamentos
+
+Este es el proyecto final para el curso de React Fundamentos, que consiste en el desarrollo de una aplicación web de mini tienda en línea básica. La aplicación permite a los usuarios:
+
+* Visualizar un catálogo de productos obtenidos de Firestore.
+* Seleccionar productos y agregarlos a un carrito de compras.
+* Calcular subtotales por producto y un total general del carrito.
+* Ingresar órdenes, las cuales son almacenadas en Firestore.
+* Gestionar usuarios mediante un sistema de login/registro (creación de usuario si no existe, o inicio de sesión si ya existe).
+* Visualizar un historial de órdenes ingresadas por el usuario.
+
+## Tecnologías Utilizadas
+
+* **Frontend:** React (con Vite)
+* **Lenguaje:** JavaScript
+* **Base de Datos:** Google Firestore (Firebase)
+* **Herramientas de Desarrollo:** Visual Studio Code, Node.js
+
+## Configuración de Firestore
+
+El proyecto utiliza Google Firestore para almacenar los datos de productos, usuarios y órdenes. Se configuran las siguientes colecciones:
+
+* `productos`: Almacena la información de los productos disponibles en la tienda (nombre, precio, imagen, cantidadDisponible).
+* `usuarios`: Guarda los correos electrónicos de los usuarios que han iniciado sesión o se han registrado.
+* `ordenes`: Contiene los pedidos realizados por los usuarios, incluyendo el ID del usuario y una cadena JSON con los detalles de los productos de la orden.
+
+Captura de pantalla de las colecciones de Firestore → `public/Firebase.png`
+
+
+## Instrucciones para Ejecutar el Proyecto
+
+1.  **Clonar el repositorio:**
+    ```bash
+    git clone TU_URL_DEL_REPOSITORIO_DE_GITHUB
+    cd nombre-de-tu-carpeta-de-proyecto (ej. mi-tienda)
+    ```
+2.  **Instalar dependencias:**
+    ```bash
+    npm install
+    ```
+3.  **Configurar Firebase:**
+    * Crea un proyecto en [Firebase Console](https://console.firebase.google.com/).
+    * Configura una aplicación web y copia tu objeto `firebaseConfig`.
+    * Habilita "Firestore Database" en modo de prueba.
+    * Crea un archivo `src/firebaseConfig.js` con tu configuración:
+        ```javascript
+        // src/firebaseConfig.js
+        import { initializeApp } from "firebase/app";
+        import { getFirestore } from "firebase/firestore";
+        // Importa getAnalytics si lo habilitaste
+        // import { getAnalytics } from "firebase/analytics";
+
+        const firebaseConfig = {
+          apiKey: "TU_API_KEY",
+          authDomain: "TU_AUTH_DOMAIN",
+          projectId: "TU_PROJECT_ID",
+          storageBucket: "TU_STORAGE_BUCKET",
+          messagingSenderId: "TU_MESSAGING_SENDER_ID",
+          appId: "TU_APP_ID",
+          // measurementId: "TU_MEASUREMENT_ID"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        // const analytics = getAnalytics(app); // Si lo usas
+        const db = getFirestore(app);
+
+        export { db };
+        ```
+    * Asegúrate de haber creado al menos 3-5 productos de ejemplo en la colección `productos` de Firestore.
+
+4.  **Ejecutar la aplicación:**
+    ```bash
+    npm run dev
+    ```
+    La aplicación se abrirá en tu navegador (normalmente `http://localhost:5173/`).
+
+---------------------------------------------------------------------------------------------
+
 
 # React + Vite
 

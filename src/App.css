@@ -1,214 +1,564 @@
-/* Estilos generales para el contenedor de la aplicación */
-.app-container {
-  font-family: 'Arial', sans-serif;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  background-color: #f8f8f8;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+/* src/App.css */
+
+/* Estilos globales para el body */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    /* Fondo con un degradado sutil para un ambiente más suave y acogedor */
+    background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%); /* Azul muy claro a blanco azulado */
+    color: #333;
+    min-height: 100vh; /* Asegura que el degradado cubra toda la altura */
+    display: flex; /* Para centrar el contenedor principal */
+    justify-content: center;
+    align-items: center;
 }
 
-/* Estilos para el título principal */
-.title {
-  text-align: center;
-  color: #333;
-  margin-bottom: 30px;
+/* Estilos generales para el contenedor de la aplicación */
+.app-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto; /* Margen para que no toque los bordes */
+    /* Fondo con un degradado ligeramente más cálido o pastel */
+    background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%); /* Blanco a blanco muy suave */
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* Sombra un poco más fuerte */
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos del Header/Navegación */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 30px;
+}
+
+.main-title {
+    margin: 0;
+    color: #00C9A7; /* Azul turquesa */
+    font-size: 2.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-info span {
+    font-weight: bold;
+    color: #555;
+    font-size: 1.1em;
+}
+
+/* Botones de navegación (Ver Mis Órdenes, Cerrar Sesión) */
+.view-orders-btn, .logout-btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 25px; /* Bordes más redondeados */
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.view-orders-btn {
+    background-color: #FF6F61; /* Rosa coral */
+    color: white;
+}
+
+.view-orders-btn:hover {
+    background-color: #e05e50; /* Rosa coral más oscuro */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.logout-btn {
+    background-color: #f7d08a; /* Amarillo suave */
+    color: #333;
+}
+
+.logout-btn:hover {
+    background-color: #e6b26c; /* Amarillo más oscuro */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Botón "Volver al Catálogo" */
+.back-to-catalog-btn {
+    padding: 10px 20px;
+    margin-bottom: 25px;
+    background-color: #00C9A7; /* Azul turquesa */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.back-to-catalog-btn:hover {
+    background-color: #00b396; /* Azul turquesa más oscuro */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Estilos para el contenedor de Login */
+.login-container {
+    max-width: 450px;
+    margin: 80px auto;
+    padding: 40px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    /* Fondo para el login */
+    background: linear-gradient(135deg, #ffffff 0%, #fdfdff 100%);
+    text-align: center;
+}
+
+.login-title {
+    color: #00C9A7; /* Azul turquesa */
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    font-weight: bold;
+}
+
+.login-form .form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+    font-size: 1.1em;
+}
+
+.login-form input[type="email"] {
+    width: calc(100% - 24px); /* Ancho completo menos padding y borde */
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.05em;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #00C9A7; /* Azul turquesa */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.3em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.login-btn:hover {
+    background-color: #00b396; /* Azul turquesa más oscuro */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+/* Estilos específicos para la sección principal (Catálogo/Órdenes) */
+.section-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 35px;
+    font-size: 2em;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
 }
 
 /* Estilos para la cuadrícula de productos */
 .productos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-  justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Tarjetas un poco más grandes */
+    gap: 25px;
+    justify-content: center;
 }
 
 /* Estilos para cada tarjeta de producto */
 .producto-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 15px;
-  text-align: center;
-  background-color: #fff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%; /* Asegura que todas las tarjetas tengan la misma altura si el contenido varía */
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    /* Fondo para las tarjetas de producto */
+    background: linear-gradient(135deg, #ffffff 0%, #fcfcff 100%);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
 /* Estilos para la imagen del producto */
 .producto-card img {
-  width: 100%;
-  height: 180px; /* Altura fija para las imágenes */
-  object-fit: cover; /* Recorta la imagen para cubrir el área sin distorsionar */
-  border-radius: 4px;
-  margin-bottom: 10px;
+    width: 100%;
+    height: 200px; /* Altura fija para las imágenes */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #f0f0f0;
 }
 
 /* Estilos para el nombre del producto */
 .producto-card h3 {
-  font-size: 1.1em;
-  color: #555;
-  margin-bottom: 5px;
+    font-size: 1.3em;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 /* Estilos para el precio del producto */
 .producto-card p {
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #007bff;
-}
-
-/* Estilos para mensajes de carga o error */
-.loading-message, .error-message {
-  text-align: center;
-  margin-top: 50px;
-  font-size: 1.1em;
-}
-
-.error-message {
-  color: red;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #FF6F61; /* Rosa coral */
+    margin-bottom: 15px;
 }
 
 /* Estilos para el control de cantidad en la tarjeta de producto */
 .cantidad-control {
-  margin: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px; /* Espacio entre el label y el input */
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .cantidad-control label {
-  font-size: 0.9em;
-  color: #666;
+    font-size: 1em;
+    color: #666;
+    font-weight: bold;
 }
 
 .cantidad-control input[type="number"] {
-  width: 60px; /* Ancho más pequeño para el input numérico */
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  text-align: center;
-  -moz-appearance: textfield; /* Para Firefox */
+    width: 70px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.05em;
+    -moz-appearance: textfield;
 }
 
 /* Ocultar flechas en input type="number" para Webkit (Chrome, Safari, Edge) */
 .cantidad-control input::-webkit-outer-spin-button,
 .cantidad-control input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
-
 
 /* Estilos para el botón "Agregar al Carrito" */
 .agregar-carrito-btn {
-  background-color: #28a745; /* Verde */
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1em;
-  margin-top: 10px;
-  transition: background-color 0.2s ease;
+    background-color: #00C9A7; /* Azul turquesa */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: auto; /* Empuja el botón hacia abajo */
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .agregar-carrito-btn:hover {
-  background-color: #218838; /* Verde más oscuro al pasar el mouse */
+    background-color: #00b396; /* Azul turquesa más oscuro */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Estilos para mensajes de carga o error */
+.loading-message, .error-message, .carrito-vacio-mensaje, .no-ordenes-mensaje {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.2em;
+    padding: 20px;
+    background-color: #ffe0b2; /* Un fondo suave para mensajes */
+    border-radius: 8px;
+    color: #6d4c41; /* Color de texto que contraste */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.error-message {
+    color: #d32f2f; /* Rojo para errores */
+    background-color: #ffcdd2;
 }
 
 /* Estilos para el contenedor del carrito */
 .carrito-container {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  margin-top: 40px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    /* Fondo para el carrito */
+    background: linear-gradient(135deg, #ffffff 0%, #fdfdff 100%);
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 50px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
 .carrito-title {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
-}
-
-.carrito-vacio-mensaje {
-  text-align: center;
-  color: #777;
-  font-style: italic;
-  padding: 20px 0;
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+    font-size: 2em;
 }
 
 /* Estilos para la tabla del carrito */
 .carrito-tabla {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+    font-size: 1.05em;
 }
 
 .carrito-tabla th, .carrito-tabla td {
-  border: 1px solid #eee;
-  padding: 10px;
-  text-align: left;
+    border: 1px solid #f0f0f0;
+    padding: 12px;
+    text-align: left;
+    vertical-align: middle;
 }
 
 .carrito-tabla th {
-  background-color: #f2f2f2;
-  font-weight: bold;
-  color: #555;
+    background-color: #f8f8f8;
+    font-weight: bold;
+    color: #555;
+    text-transform: uppercase;
 }
 
 .carrito-tabla td {
-  vertical-align: middle;
+    color: #444;
 }
 
 /* Estilos para el botón eliminar del carrito */
 .eliminar-btn {
-  background-color: #dc3545; /* Rojo */
-  color: white;
-  padding: 6px 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9em;
-  transition: background-color 0.2s ease;
+    background-color: #FF6F61; /* Rosa coral */
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .eliminar-btn:hover {
-  background-color: #c82333; /* Rojo más oscuro */
+    background-color: #e05e50; /* Rosa coral más oscuro */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 /* Estilos para el total del carrito */
 .total-carrito {
-  text-align: right;
-  font-size: 1.5em;
-  color: #007bff;
-  margin-top: 20px;
-  padding-top: 10px;
-  border-top: 1px dashed #eee;
+    text-align: right;
+    font-size: 1.8em;
+    color: #00C9A7; /* Azul turquesa */
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 2px dashed #f0f0f0;
+    font-weight: bold;
 }
 
 /* Estilos para el botón "Ingresar Orden" */
 .ingresar-orden-btn {
-  display: block; /* Ocupa todo el ancho disponible */
-  width: 100%; /* Asegura que el ancho sea completo */
-  margin-top: 20px;
-  padding: 15px 20px;
-  background-color: #007bff; /* Azul */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.2em;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+    display: block;
+    width: 100%;
+    margin-top: 25px;
+    padding: 18px 20px;
+    background-color: #FF6F61; /* Rosa coral */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.4em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .ingresar-orden-btn:hover {
-  background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+    background-color: #e05e50; /* Rosa coral más oscuro */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Estilos para el contenedor de órdenes */
+.ordenes-container {
+    /* Fondo para la sección de órdenes */
+    background: linear-gradient(135deg, #ffffff 0%, #fdfdff 100%);
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.ordenes-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+    font-size: 2em;
+}
+
+/* Estilos para cada tarjeta de orden */
+.orden-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+    /* Fondo para cada orden individual */
+    background: linear-gradient(135deg, #fcfcfc 0%, #f9f9ff 100%);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.orden-card p {
+    margin-bottom: 10px;
+    color: #444;
+    font-size: 1em;
+}
+
+.orden-card p strong {
+    color: #00C9A7; /* Azul turquesa */
+}
+
+.productos-en-orden-title {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.2em;
+    border-bottom: 1px dashed #e0e0e0;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.productos-en-orden-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.producto-en-orden-item {
+    border: 1px solid #f5f5f5;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    /* Fondo para los ítems de producto dentro de una orden */
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.producto-en-orden-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.producto-en-orden-img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.producto-en-orden-nombre {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+    font-size: 1.05em;
+}
+
+.producto-en-orden-precio,
+.producto-en-orden-subtotal {
+    font-size: 0.95em;
+    color: #666;
+}
+
+.producto-en-orden-subtotal {
+    font-weight: bold;
+    color: #FF6F61; /* Rosa coral para subtotales de orden */
+    margin-top: 8px;
+    font-size: 1.1em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .app-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .user-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .main-title {
+        font-size: 2em;
+        text-align: center;
+    }
+
+    .productos-grid, .productos-en-orden-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+
+    .carrito-tabla th, .carrito-tabla td {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .app-container, .login-container, .carrito-container, .ordenes-container {
+        padding: 15px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .main-title {
+        font-size: 1.8em;
+    }
+
+    .login-title, .carrito-title, .ordenes-title, .section-title {
+        font-size: 1.5em;
+    }
+
+    .productos-grid, .productos-en-orden-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas muy pequeñas */
+    }
+
+    .view-orders-btn, .logout-btn, .back-to-catalog-btn, .agregar-carrito-btn, .login-btn, .ingresar-orden-btn, .eliminar-btn {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
 }
