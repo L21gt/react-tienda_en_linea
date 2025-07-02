@@ -82,8 +82,8 @@ Captura de pantalla de las colecciones de Firestore → `public/Firebase.png`
 
 1.  **Clonar el repositorio:**
     ```bash
-    git clone TU_URL_DEL_REPOSITORIO_DE_GITHUB
-    cd nombre-de-tu-carpeta-de-proyecto (ej. mi-tienda)
+    git clone https://github.com/L21gt/react-tienda_en_linea.git
+    cd mi-tienda
     ```
 2.  **Instalar dependencias:**
     ```bash
